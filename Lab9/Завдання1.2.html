@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Обчислення тригонометричних функцій</title>
+</head>
+<body>
+  <h2>Обчислення тригонометричних функцій</h2>
+  <p>Введіть значення кута в градусах:</p>
+  <input type="text" id="angle" size="6">
+  <p>Виберіть тригонометричну функцію:</p>
+  <select id="trigFunction">
+    <option value="sin">sin</option>
+    <option value="cos">cos</option>
+    <option value="tan">tan</option>
+  </select>
+  <button onclick="calculateTrigFunction()">Обчислити</button>
+  <p>Результат:</p>
+  <p id="result"></p>
+
+  <script>
+    function calculateTrigFunction() {
+      var angleDegrees = parseFloat(document.getElementById("angle").value);
+      var angleRadians = angleDegrees * Math.PI / 180;
+      var trigFunction = document.getElementById("trigFunction").value;
+      var result;
+      switch (trigFunction) {
+        case "sin":
+          result = Math.sin(angleRadians);
+          break;
+        case "cos":
+          result = Math.cos(angleRadians);
+          break;
+        case "tan":
+          result = Math.tan(angleRadians);
+          break;
+        default:
+          result = "Невідома функція";
+      }
+      document.getElementById("result").innerText = result.toFixed(4);
+    }
+  </script>
+</body>
+</html>
